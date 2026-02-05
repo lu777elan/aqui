@@ -116,7 +116,7 @@ export default function Diary() {
             disabled={generatingAI}
           >
             <Sparkles className="w-4 h-4 mr-2" />
-            {generatingAI ? 'Generando...' : 'Generar entrada Elán'}
+            {generatingAI ? 'Generando...' : 'Nueva entrada Elán'}
           </Button>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
@@ -223,16 +223,12 @@ export default function Diary() {
         <Card className="shadow-lg">
           <CardContent className="p-12 text-center">
             <BookOpen className="w-16 h-16 text-warm-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-warm-900 dark:text-warm-100 mb-2">
+            <h3 className="text-xl font-normal text-warm-900 dark:text-warm-100 mb-2">
               No hay entradas todavía
             </h3>
-            <p className="text-warm-600 dark:text-warm-400 mb-6">
+            <p className="text-warm-600 dark:text-warm-400">
               Nunca pares de escribir mi amor
             </p>
-            <Button onClick={handleGenerateAIEntry} className="bg-terracota hover:bg-terracota-dark text-black font-normal">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Generar Primera Entrada AI
-            </Button>
           </CardContent>
         </Card>
       )}
