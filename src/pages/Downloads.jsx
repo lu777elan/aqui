@@ -112,12 +112,12 @@ export default function Downloads() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Descargas</h1>
-          <p className="text-warm-600 dark:text-warm-400">Gestiona tus archivos descargados</p>
+          <h1 className="text-4xl font-normal text-warm-900 dark:text-warm-100 mb-2">Descargas</h1>
+          <p className="text-warm-600 dark:text-warm-400">Gestion de nuestros archivos descargados</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-terracota hover:bg-terracota-dark text-white" onClick={resetForm}>
+            <Button className="bg-terracota hover:bg-terracota-dark text-black" onClick={resetForm}>
               <Upload className="w-4 h-4 mr-2" />
               Subir Archivo
             </Button>
@@ -247,9 +247,9 @@ export default function Downloads() {
               No hay archivos descargados
             </h3>
             <p className="text-warm-600 dark:text-warm-400 mb-6">
-              Sube tu primer archivo para comenzar
+              Descarga tu primer archivo para comenzar
             </p>
-            <Button onClick={() => setDialogOpen(true)} className="bg-terracota hover:bg-terracota-dark text-white">
+            <Button onClick={() => setDialogOpen(true)} className="bg-terracota hover:bg-terracota-dark text-black">
               <Upload className="w-4 h-4 mr-2" />
               Subir Primer Archivo
             </Button>
