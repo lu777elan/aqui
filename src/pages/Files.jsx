@@ -119,7 +119,7 @@ export default function Files() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Archivos</h1>
+          <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">Nuestros Archivos</h1>
           <p className="text-warm-600 dark:text-warm-400">Organiza tus notas, conversaciones y documentos</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>

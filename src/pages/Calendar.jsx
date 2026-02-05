@@ -98,7 +98,25 @@ export default function Calendar() {
     trabajo: 'bg-blue-100 text-blue-800 border-blue-300',
     salud: 'bg-green-100 text-green-800 border-green-300',
     social: 'bg-pink-100 text-pink-800 border-pink-300',
+    salidas: 'bg-orange-100 text-orange-800 border-orange-300',
+    citas: 'bg-rose-100 text-rose-800 border-rose-300',
+    proyectos: 'bg-indigo-100 text-indigo-800 border-indigo-300',
+    peliculas: 'bg-red-100 text-red-800 border-red-300',
+    libros: 'bg-amber-100 text-amber-800 border-amber-300',
     otro: 'bg-gray-100 text-gray-800 border-gray-300'
+  };
+
+  const categoryEmojis = {
+    personal: '👤',
+    trabajo: '💼',
+    salud: '🏥',
+    social: '👥',
+    salidas: '🚶',
+    citas: '💑',
+    proyectos: '📋',
+    peliculas: '🎬',
+    libros: '📚',
+    otro: '📌'
   };
 
   return (
@@ -166,11 +184,16 @@ export default function Calendar() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="personal">Personal</SelectItem>
-                    <SelectItem value="trabajo">Trabajo</SelectItem>
-                    <SelectItem value="salud">Salud</SelectItem>
-                    <SelectItem value="social">Social</SelectItem>
-                    <SelectItem value="otro">Otro</SelectItem>
+                    <SelectItem value="personal">👤 Personal</SelectItem>
+                    <SelectItem value="trabajo">💼 Trabajo</SelectItem>
+                    <SelectItem value="salud">🏥 Salud</SelectItem>
+                    <SelectItem value="social">👥 Social</SelectItem>
+                    <SelectItem value="salidas">🚶 Salidas</SelectItem>
+                    <SelectItem value="citas">💑 Citas</SelectItem>
+                    <SelectItem value="proyectos">📋 Proyectos</SelectItem>
+                    <SelectItem value="peliculas">🎬 Películas</SelectItem>
+                    <SelectItem value="libros">📚 Libros</SelectItem>
+                    <SelectItem value="otro">📌 Otro</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -230,8 +253,12 @@ export default function Calendar() {
                       <div
                         key={event.id}
                         className={`text-xs px-2 py-1 rounded border ${categoryColors[event.category]}`}
+                        style={event.color ? { borderLeftWidth: '3px', borderLeftColor: event.color } : {}}
                       >
-                        <p className="truncate font-medium">{event.title}</p>
+                        <p className="truncate font-medium flex items-center gap-1">
+                          <span>{categoryEmojis[event.category]}</span>
+                          {event.title}
+                        </p>
                       </div>
                     ))}
                     {dayEvents.length > 2 && (

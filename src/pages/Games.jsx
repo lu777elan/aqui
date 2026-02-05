@@ -43,7 +43,7 @@ export default function Games() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Centro de Juegos</h1>
+        <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">Sala de Juegos</h1>
         <p className="text-warm-600 dark:text-warm-400">Diviértete con estos juegos junto a la AI</p>
       </div>
 
