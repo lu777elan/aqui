@@ -3,7 +3,7 @@ import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Send, Sparkles } from 'lucide-react';
+import { Send, Moon } from 'lucide-react';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 
@@ -114,11 +114,14 @@ export default function ChatInterface({ context, title }) {
   };
 
   return (
-    <Card className="shadow-lg h-full flex flex-col">
-      <CardHeader className="border-b">
+    <Card className="shadow-lg h-full flex flex-col" style={{ 
+      background: 'linear-gradient(135deg, #FAF9F6 0%, #F5F3EE 50%, #F0EDE5 100%)',
+      backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px)'
+    }}>
+      <CardHeader className="border-b" style={{ background: 'rgba(250, 249, 246, 0.8)' }}>
         <div className="flex items-center justify-between">
-          <CardTitle className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-purple-600" />
+          <CardTitle className="flex items-center gap-2 text-base font-normal">
+            <Moon className="w-4 h-4 text-purple-500" />
             {title}
           </CardTitle>
           <span className="text-xs text-warm-600 dark:text-warm-400">

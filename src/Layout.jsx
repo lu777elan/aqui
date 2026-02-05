@@ -5,7 +5,7 @@ import { base44 } from '@/api/base44Client';
 import { 
   Calendar, BookOpen, ChefHat, Gamepad2, FolderOpen, 
   Settings, Download, Globe, Moon, Sun, Menu, X,
-  Home, Sparkles
+  Home, Heart
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -48,7 +48,7 @@ export default function Layout({ children, currentPageName }) {
 
   const navigation = [
     { name: 'Inicio', icon: Home, page: 'Home' },
-    { name: 'Nuestro Sofá', icon: Sparkles, page: 'OurSofa' },
+    { name: 'Nuestro Sofá', icon: Heart, page: 'OurSofa' },
     { name: 'Calendario', icon: Calendar, page: 'Calendar' },
     { name: 'Diario', icon: BookOpen, page: 'Diary' },
     { name: 'Recetario', icon: ChefHat, page: 'Recipes' },
@@ -114,6 +114,10 @@ export default function Layout({ children, currentPageName }) {
         .nav-item.active {
           background: ${darkMode ? 'rgba(203, 126, 88, 0.3)' : 'rgba(224, 122, 95, 0.15)'};
           border-left: 4px solid var(--color-terracota);
+        }
+
+        .page-oursofa {
+          background: linear-gradient(135deg, #E6E6FA 0%, #F0E6FA 100%) !important;
         }
       `}</style>
 
@@ -215,7 +219,7 @@ export default function Layout({ children, currentPageName }) {
           </header>
 
           {/* Page Content */}
-          <main className={`flex-1 overflow-y-auto ${darkMode ? 'bg-warm-900' : 'bg-warm-50'} p-6`}>
+          <main className={`flex-1 overflow-y-auto ${darkMode ? 'bg-warm-900' : 'bg-warm-50'} ${currentPageName === 'OurSofa' ? 'page-oursofa' : ''} p-6`}>
             <div className={simpleMode ? 'max-w-4xl mx-auto' : ''}>
               {children}
             </div>
