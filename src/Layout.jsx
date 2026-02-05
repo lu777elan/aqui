@@ -129,7 +129,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="p-6 border-b border-warm-200 dark:border-warm-700">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-terracota to-warm-600 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
+                <Heart className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h1 className="text-xl font-normal text-warm-900 dark:text-warm-100 flex items-center gap-1">
