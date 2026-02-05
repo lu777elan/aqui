@@ -234,7 +234,7 @@ export default function Library() {
                     </SelectContent>
                   </Select>
                 </div>
-                <Button onClick={handleSaveBook} className="w-full bg-terracota hover:bg-terracota-dark text-white">
+                <Button onClick={handleSaveBook} className="w-full bg-terracota hover:bg-terracota-dark text-black">
                   Guardar Libro
                 </Button>
               </div>
