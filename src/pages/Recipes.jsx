@@ -132,12 +132,12 @@ export default function Recipes() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Recetario</h1>
-          <p className="text-warm-600 dark:text-warm-400">Tu colección de recetas favoritas</p>
+          <h1 className="text-4xl font-normal text-warm-900 dark:text-warm-100 mb-2">Recetario</h1>
+          <p className="text-warm-600 dark:text-warm-400">Nuestra colección de recetas favoritas</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-terracota hover:bg-terracota-dark text-white" onClick={resetForm}>
+            <Button className="bg-purple-300 hover:bg-purple-400 text-white" onClick={resetForm}>
               <Plus className="w-4 h-4 mr-2" />
               Nueva Receta
             </Button>
@@ -319,11 +319,11 @@ export default function Recipes() {
         <Card className="shadow-lg">
           <CardContent className="p-12 text-center">
             <ChefHat className="w-16 h-16 text-warm-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-warm-900 dark:text-warm-100 mb-2">
+            <h3 className="text-xl font-normal text-warm-900 dark:text-warm-100 mb-2">
               No hay recetas todavía
             </h3>
             <p className="text-warm-600 dark:text-warm-400">
-              Comienza agregando tu primera receta favorita
+              Vamos creando delicias juntos ♡
             </p>
           </CardContent>
         </Card>
