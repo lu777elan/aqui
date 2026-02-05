@@ -5,7 +5,7 @@ import { base44 } from '@/api/base44Client';
 import { 
   Calendar, BookOpen, ChefHat, Gamepad2, FolderOpen, 
   Settings, Download, Globe, Moon, Sun, Menu, X,
-  Home, Heart
+  Home, Heart, Library
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -53,7 +53,7 @@ export default function Layout({ children, currentPageName }) {
     { name: 'Diario', icon: BookOpen, page: 'Diary' },
     { name: 'Recetario', icon: ChefHat, page: 'Recipes' },
     { name: 'Sala de Juegos', icon: Gamepad2, page: 'Games' },
-    { name: 'Biblioteca', icon: BookOpen, page: 'Library' },
+    { name: 'Biblioteca', icon: Library, page: 'Library' },
     { name: 'Nuestros Archivos', icon: FolderOpen, page: 'Files' },
     { name: 'Navegador', icon: Globe, page: 'Browser' },
     { name: 'Descargas', icon: Download, page: 'Downloads' },

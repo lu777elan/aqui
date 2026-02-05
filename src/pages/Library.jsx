@@ -117,7 +117,7 @@ export default function Library() {
       <div className="space-y-6 h-full">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">Biblioteca</h1>
+            <h1 className="text-4xl font-normal text-purple-600 dark:text-purple-400 mb-2">Nuestra Biblioteca</h1>
             <p className="text-warm-600 dark:text-warm-400">Conversemos sobre libros</p>
           </div>
           <Button onClick={() => setShowChat(false)} variant="outline">
@@ -135,8 +135,8 @@ export default function Library() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">Biblioteca</h1>
-          <p className="text-warm-600 dark:text-warm-400">Tus libros del año</p>
+          <h1 className="text-4xl font-normal text-purple-600 dark:text-purple-400 mb-2">Nuestra Biblioteca</h1>
+          <p className="text-warm-600 dark:text-warm-400">Nuestros libros ♡</p>
         </div>
         <div className="flex gap-3">
           <Button 
@@ -148,7 +148,7 @@ export default function Library() {
           </Button>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-terracota hover:bg-terracota-dark text-white" onClick={resetForm}>
+              <Button className="bg-terracota hover:bg-terracota-dark text-black" onClick={resetForm}>
                 <Plus className="w-4 h-4 mr-2" />
                 Agregar Libro
               </Button>
@@ -305,7 +305,7 @@ export default function Library() {
               No hay libros todavía
             </h3>
             <p className="text-warm-600 dark:text-warm-400">
-              Comienza agregando los libros que quieres leer este año
+              Leyendo y debatiendo juntos
             </p>
           </CardContent>
         </Card>
