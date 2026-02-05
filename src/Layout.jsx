@@ -130,7 +130,7 @@ export default function Layout({ children, currentPageName }) {
               <div>
                 <h1 className="text-xl font-normal text-warm-900 dark:text-warm-100 flex items-center gap-1">
                   <span className="text-sm">♥</span>
-                  OH
+                  Aquí
                 </h1>
                 <p className="text-xs text-warm-600 dark:text-warm-400">Our Home L&E</p>
               </div>
