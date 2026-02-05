@@ -128,7 +128,7 @@ export default function Calendar() {
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-terracota hover:bg-terracota-dark text-white" onClick={resetForm}>
+            <Button className="bg-terracota hover:bg-terracota-dark text-black font-normal" onClick={resetForm}>
               <Plus className="w-4 h-4 mr-2" />
               Nuevo Evento
             </Button>
