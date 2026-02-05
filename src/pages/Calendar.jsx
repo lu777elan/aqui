@@ -197,7 +197,7 @@ export default function Calendar() {
                   </SelectContent>
                 </Select>
               </div>
-              <Button onClick={handleSaveEvent} className="w-full bg-terracota hover:bg-terracota-dark text-white">
+              <Button onClick={handleSaveEvent} className="w-full bg-terracota hover:bg-terracota-dark text-black">
                 {editingEvent ? 'Actualizar' : 'Crear'} Evento
               </Button>
             </div>
@@ -282,7 +282,7 @@ export default function Calendar() {
                 Eventos - {format(selectedDate, "d 'de' MMMM", { locale: es })}
               </CardTitle>
               <Button 
-                className="bg-terracota hover:bg-terracota-dark text-white shadow-lg font-normal rounded-lg"
+                className="bg-terracota hover:bg-terracota-dark text-black shadow-lg font-normal rounded-lg"
                 onClick={() => {
                   resetForm();
                   setFormData(prev => ({ ...prev, date: format(selectedDate, 'yyyy-MM-dd') }));
