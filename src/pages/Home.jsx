@@ -244,7 +244,7 @@ export default function Home() {
             {favoriteRecipes.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {favoriteRecipes.map((recipe) => (
-                  <div key={recipe.id} className="group cursor-pointer">
+                  <Link key={recipe.id} to={createPageUrl('Recipes') + `?recipe=${recipe.id}`} className="group cursor-pointer">
                     <div className="aspect-square bg-warm-200 dark:bg-warm-700 rounded-2xl overflow-hidden mb-3">
                       {recipe.photo_url ? (
                         <img 
@@ -267,7 +267,7 @@ export default function Home() {
                         />
                       ))}
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (
