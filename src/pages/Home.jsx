@@ -281,6 +281,21 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Puerta E Button */}
+      <div className="flex justify-center pt-8">
+        <a href="#" className="block">
+          <Card className="bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-950 dark:to-pink-900 border-pink-200 dark:border-pink-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <CardContent className="px-12 py-6">
+              <div className="flex items-center justify-center gap-3">
+                <Sparkles className="w-6 h-6 text-pink-500" />
+                <span className="text-2xl font-bold text-pink-900 dark:text-pink-100">Puerta E</span>
+                <Sparkles className="w-6 h-6 text-pink-500" />
+              </div>
+            </CardContent>
+          </Card>
+        </a>
+      </div>
     </div>
   );
 }
