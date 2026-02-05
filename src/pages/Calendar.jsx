@@ -7,9 +7,12 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Calendar as CalendarIcon, Plus, Clock, Tag, Trash2, Edit, Bell, Circle, Menu } from 'lucide-react';
+import { Calendar as CalendarIcon, Plus, Clock, Tag, Trash2, Edit, Bell, Circle, Menu, Check, X } from 'lucide-react';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isSameDay, addMonths, subMonths } from 'date-fns';
 import { es } from 'date-fns/locale';
+import AIEventSuggestions from '../components/calendar/AIEventSuggestions';
+import AIAttendancePrediction from '../components/calendar/AIAttendancePrediction';
+import SmartEventNotification from '../components/calendar/SmartEventNotification';
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -17,6 +20,8 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState(null);
+  const [showAISuggestions, setShowAISuggestions] = useState(false);
+  const [selectedEventForDetails, setSelectedEventForDetails] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -71,6 +76,29 @@ export default function Calendar() {
       category: 'personal'
     });
     setEditingEvent(null);
+  };
+
+  const handleSelectAISuggestion = (suggestion) => {
+    setFormData({
+      ...formData,
+      date: suggestion.date,
+      time: suggestion.time,
+      category: suggestion.recommended_category || formData.category
+    });
+    setDialogOpen(true);
+    setShowAISuggestions(false);
+  };
+
+  const handleMarkAttendance = async (eventId, attended) => {
+    try {
+      await base44.entities.Event.update(eventId, { attended });
+      loadEvents();
+      if (selectedEventForDetails?.id === eventId) {
+        setSelectedEventForDetails({ ...selectedEventForDetails, attended });
+      }
+    } catch (error) {
+      console.error('Error marcando asistencia:', error);
+    }
   };
 
   const openEditDialog = (event) => {
@@ -205,6 +233,23 @@ export default function Calendar() {
         </Dialog>
       </div>
 
+      {/* AI Suggestions Toggle */}
+      <div className="flex justify-center">
+        <Button
+          variant="outline"
+          onClick={() => setShowAISuggestions(!showAISuggestions)}
+          className="border-purple-300 text-purple-600 hover:bg-purple-50 dark:border-purple-700 dark:text-purple-400"
+        >
+          <Calendar className="w-4 h-4 mr-2" />
+          {showAISuggestions ? 'Ocultar' : 'Ver'} Sugerencias de IA
+        </Button>
+      </div>
+
+      {/* AI Event Suggestions */}
+      {showAISuggestions && (
+        <AIEventSuggestions onSelectSuggestion={handleSelectAISuggestion} />
+      )}
+
       {/* Calendar Header */}
       <Card className="shadow-lg">
         <CardHeader className="border-b">
@@ -300,52 +345,100 @@ export default function Calendar() {
             {getEventsForDate(selectedDate).length > 0 ? (
               <div className="space-y-3">
                 {getEventsForDate(selectedDate).map(event => (
-                  <div key={event.id} className="p-4 bg-warm-50 dark:bg-warm-800 rounded-xl flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="font-semibold text-warm-900 dark:text-warm-100">{event.title}</h3>
-                        <span className={`text-xs px-2 py-1 rounded-full border ${categoryColors[event.category]}`}>
-                          {event.category}
-                        </span>
+                  <div key={event.id} className="space-y-3">
+                    <div className="p-4 bg-warm-50 dark:bg-warm-800 rounded-xl">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="font-semibold text-warm-900 dark:text-warm-100">{event.title}</h3>
+                            <span className={`text-xs px-2 py-1 rounded-full border ${categoryColors[event.category]}`}>
+                              {event.category}
+                            </span>
+                          </div>
+                          {event.description && (
+                            <p className="text-sm text-warm-600 dark:text-warm-400 mb-2">{event.description}</p>
+                          )}
+                          <div className="flex items-center gap-4 text-xs text-warm-500">
+                            {event.time && (
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-3 h-3" />
+                                {event.time}
+                              </span>
+                            )}
+                            {event.notified && (
+                              <span className="flex items-center gap-1 text-terracota">
+                                <Bell className="w-3 h-3" />
+                                Notificado
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            onClick={() => openEditDialog(event)}
+                            className="text-warm-600 hover:text-warm-900"
+                          >
+                            <Edit className="w-4 h-4 mr-1" />
+                            Modificar
+                          </Button>
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            onClick={() => handleDeleteEvent(event.id)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            <Trash2 className="w-4 h-4 mr-1" />
+                            Eliminar
+                          </Button>
+                        </div>
                       </div>
-                      {event.description && (
-                        <p className="text-sm text-warm-600 dark:text-warm-400 mb-2">{event.description}</p>
+
+                      {/* Attendance Buttons */}
+                      {new Date(event.date) < new Date() && (
+                        <div className="flex items-center gap-2 mb-3 pt-3 border-t border-warm-200 dark:border-warm-700">
+                          <span className="text-xs text-warm-600 dark:text-warm-400">¿Asististe?</span>
+                          <Button
+                            size="sm"
+                            variant={event.attended === true ? "default" : "outline"}
+                            onClick={() => handleMarkAttendance(event.id, true)}
+                            className={event.attended === true ? "bg-green-500 hover:bg-green-600" : ""}
+                          >
+                            <Check className="w-3 h-3 mr-1" />
+                            Sí
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant={event.attended === false ? "default" : "outline"}
+                            onClick={() => handleMarkAttendance(event.id, false)}
+                            className={event.attended === false ? "bg-red-500 hover:bg-red-600" : ""}
+                          >
+                            <X className="w-3 h-3 mr-1" />
+                            No
+                          </Button>
+                        </div>
                       )}
-                      <div className="flex items-center gap-4 text-xs text-warm-500">
-                        {event.time && (
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {event.time}
-                          </span>
-                        )}
-                        {event.notified && (
-                          <span className="flex items-center gap-1 text-terracota">
-                            <Bell className="w-3 h-3" />
-                            Notificado
-                          </span>
-                        )}
+
+                      {/* AI Features */}
+                      <div className="space-y-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => setSelectedEventForDetails(selectedEventForDetails?.id === event.id ? null : event)}
+                          className="w-full text-xs"
+                        >
+                          {selectedEventForDetails?.id === event.id ? 'Ocultar' : 'Ver'} Análisis de IA
+                        </Button>
                       </div>
                     </div>
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        onClick={() => openEditDialog(event)}
-                        className="text-warm-600 hover:text-warm-900"
-                      >
-                        <Edit className="w-4 h-4 mr-1" />
-                        Modificar
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        onClick={() => handleDeleteEvent(event.id)}
-                        className="text-red-500 hover:text-red-700"
-                      >
-                        <Trash2 className="w-4 h-4 mr-1" />
-                        Eliminar
-                      </Button>
-                    </div>
+
+                    {selectedEventForDetails?.id === event.id && (
+                      <div className="space-y-3 ml-4">
+                        <AIAttendancePrediction event={event} allEvents={events} />
+                        <SmartEventNotification event={event} />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
