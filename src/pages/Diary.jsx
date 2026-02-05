@@ -116,7 +116,7 @@ export default function Diary() {
             disabled={generatingAI}
           >
             <Sparkles className="w-4 h-4 mr-2" />
-            {generatingAI ? 'Generando...' : 'Generar Entrada AI'}
+            {generatingAI ? 'Generando...' : 'Generar entrada Elán'}
           </Button>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
