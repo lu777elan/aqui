@@ -50,6 +50,8 @@
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import Diary from './pages/Diary';
+import Recipes from './pages/Recipes';
+import Games from './pages/Games';
 import __Layout from './Layout.jsx';
 
 
@@ -57,6 +59,8 @@ export const PAGES = {
     "Home": Home,
     "Calendar": Calendar,
     "Diary": Diary,
+    "Recipes": Recipes,
+    "Games": Games,
 }
 
 export const pagesConfig = {
