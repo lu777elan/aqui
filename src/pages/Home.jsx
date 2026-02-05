@@ -191,7 +191,7 @@ export default function Home() {
               <p className="text-warm-600 dark:text-warm-400 text-center py-8">No hay eventos próximos</p>
             )}
             <Link to={createPageUrl('Calendar')}>
-              <Button className="w-full mt-4 bg-terracota hover:bg-terracota-dark text-white">
+              <Button className="w-full mt-4 bg-terracota hover:bg-terracota-dark text-black">
                 Ver Calendario
               </Button>
             </Link>
@@ -225,7 +225,7 @@ export default function Home() {
               <p className="text-warm-600 dark:text-warm-400 text-center py-8">No hay entradas recientes</p>
             )}
             <Link to={createPageUrl('Diary')}>
-              <Button className="w-full mt-4 bg-terracota hover:bg-terracota-dark text-white">
+              <Button className="w-full mt-4 bg-terracota hover:bg-terracota-dark text-black">
                 Ver Diario
               </Button>
             </Link>
