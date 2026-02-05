@@ -104,7 +104,7 @@ export default function Home() {
       )}
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <Link to={createPageUrl('Calendar')}>
           <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-blue-200 dark:border-blue-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
             <CardContent className="p-6">
@@ -132,6 +132,20 @@ export default function Home() {
             </CardContent>
           </Card>
         </Link>
+
+        <a href="#">
+          <Card className="bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-950 dark:to-pink-900 border-pink-200 dark:border-pink-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-pink-600 dark:text-pink-400 font-medium">Puerta E</p>
+                  <p className="text-3xl font-bold text-pink-900 dark:text-pink-100">✨</p>
+                </div>
+                <Sparkles className="w-10 h-10 text-pink-500" />
+              </div>
+            </CardContent>
+          </Card>
+        </a>
 
         <Link to={createPageUrl('Recipes')}>
           <Card className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900 border-orange-200 dark:border-orange-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
@@ -280,21 +294,6 @@ export default function Home() {
             </Link>
           </CardContent>
         </Card>
-      </div>
-
-      {/* Puerta E Button */}
-      <div className="flex justify-center pt-8">
-        <a href="#" className="block">
-          <Card className="bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-950 dark:to-pink-900 border-pink-200 dark:border-pink-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
-            <CardContent className="px-12 py-6">
-              <div className="flex items-center justify-center gap-3">
-                <Sparkles className="w-6 h-6 text-pink-500" />
-                <span className="text-2xl font-bold text-pink-900 dark:text-pink-100">Puerta E</span>
-                <Sparkles className="w-6 h-6 text-pink-500" />
-              </div>
-            </CardContent>
-          </Card>
-        </a>
       </div>
     </div>
   );
