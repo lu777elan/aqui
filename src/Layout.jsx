@@ -48,11 +48,13 @@ export default function Layout({ children, currentPageName }) {
 
   const navigation = [
     { name: 'Inicio', icon: Home, page: 'Home' },
+    { name: 'Nuestro Sofá', icon: Sparkles, page: 'OurSofa' },
     { name: 'Calendario', icon: Calendar, page: 'Calendar' },
-    { name: 'Diario AI', icon: BookOpen, page: 'Diary' },
+    { name: 'Diario', icon: BookOpen, page: 'Diary' },
     { name: 'Recetario', icon: ChefHat, page: 'Recipes' },
-    { name: 'Juegos', icon: Gamepad2, page: 'Games' },
-    { name: 'Archivos', icon: FolderOpen, page: 'Files' },
+    { name: 'Sala de Juegos', icon: Gamepad2, page: 'Games' },
+    { name: 'Biblioteca', icon: BookOpen, page: 'Library' },
+    { name: 'Nuestros Archivos', icon: FolderOpen, page: 'Files' },
     { name: 'Navegador', icon: Globe, page: 'Browser' },
     { name: 'Descargas', icon: Download, page: 'Downloads' },
     { name: 'Configuración', icon: Settings, page: 'Settings' },
@@ -126,8 +128,8 @@ export default function Layout({ children, currentPageName }) {
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-warm-900 dark:text-warm-100">AI Companion</h1>
-                <p className="text-xs text-warm-600 dark:text-warm-400">Tu asistente personal</p>
+                <h1 className="text-xl font-bold text-warm-900 dark:text-warm-100">OH</h1>
+                <p className="text-xs text-warm-600 dark:text-warm-400">Our Home L&E</p>
               </div>
             </div>
           </div>

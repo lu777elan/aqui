@@ -75,7 +75,7 @@ export default function Home() {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <Sparkles className="w-8 h-8" />
-            <h1 className="text-4xl font-bold">Bienvenido a AI Companion</h1>
+            <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400">Bienvenido a OH</h1>
           </div>
           <p className="text-xl text-white/90 max-w-2xl">
             Tu espacio personal para organizar, crear y jugar. Hoy es {format(new Date(), "EEEE, d 'de' MMMM", { locale: es })}

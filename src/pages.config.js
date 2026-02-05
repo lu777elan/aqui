@@ -60,6 +60,8 @@ import Files from './pages/Files';
 import Browser from './pages/Browser';
 import Downloads from './pages/Downloads';
 import Settings from './pages/Settings';
+import OurSofa from './pages/OurSofa';
+import Library from './pages/Library';
 import __Layout from './Layout.jsx';
 
 
@@ -77,6 +79,8 @@ export const PAGES = {
     "Browser": Browser,
     "Downloads": Downloads,
     "Settings": Settings,
+    "OurSofa": OurSofa,
+    "Library": Library,
 }
 
 export const pagesConfig = {
