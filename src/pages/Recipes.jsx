@@ -253,7 +253,7 @@ export default function Recipes() {
                 </div>
               </div>
 
-              <Button onClick={handleSaveRecipe} className="w-full bg-terracota hover:bg-terracota-dark text-white">
+              <Button onClick={handleSaveRecipe} className="w-full bg-terracota hover:bg-terracota-dark text-black">
                 Guardar Receta
               </Button>
             </div>
