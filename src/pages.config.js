@@ -52,6 +52,8 @@ import Calendar from './pages/Calendar';
 import Diary from './pages/Diary';
 import Recipes from './pages/Recipes';
 import Games from './pages/Games';
+import GameChess from './pages/GameChess';
+import GameWords from './pages/GameWords';
 import __Layout from './Layout.jsx';
 
 
@@ -61,6 +63,8 @@ export const PAGES = {
     "Diary": Diary,
     "Recipes": Recipes,
     "Games": Games,
+    "GameChess": GameChess,
+    "GameWords": GameWords,
 }
 
 export const pagesConfig = {
