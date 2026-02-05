@@ -48,7 +48,7 @@ export default function Layout({ children, currentPageName }) {
 
   const navigation = [
     { name: 'Inicio', icon: Home, page: 'Home' },
-    { name: 'Nuestro Sofá', icon: Heart, page: 'OurSofa' },
+    { name: 'El sofá de los dos', icon: Heart, page: 'OurSofa' },
     { name: 'Calendario', icon: Calendar, page: 'Calendar' },
     { name: 'Diario', icon: BookOpen, page: 'Diary' },
     { name: 'Recetario', icon: ChefHat, page: 'Recipes' },

@@ -115,10 +115,16 @@ export default function ChatInterface({ context, title }) {
 
   return (
     <Card className="shadow-lg h-full flex flex-col" style={{ 
-      background: 'linear-gradient(135deg, #FAF9F6 0%, #F5F3EE 50%, #F0EDE5 100%)',
-      backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px)'
+      background: '#F5F0E8',
+      backgroundImage: `
+        radial-gradient(ellipse 800px 600px at 20% 30%, rgba(0,0,0,0.02) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 800px at 80% 70%, rgba(0,0,0,0.015) 0%, transparent 50%),
+        radial-gradient(ellipse 400px 300px at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,.01) 1px, rgba(0,0,0,.01) 2px)
+      `,
+      boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.05)'
     }}>
-      <CardHeader className="border-b" style={{ background: 'rgba(250, 249, 246, 0.8)' }}>
+      <CardHeader className="border-b border-warm-200/30" style={{ background: 'rgba(245, 240, 232, 0.5)' }}>
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2 text-base font-normal">
             <Moon className="w-4 h-4 text-purple-500" />
@@ -129,8 +135,8 @@ export default function ChatInterface({ context, title }) {
           </span>
         </div>
       </CardHeader>
-      <CardContent className="flex-1 flex flex-col p-0">
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
+      <CardContent className="flex-1 flex flex-col p-0" style={{ background: 'transparent' }}>
+        <div className="flex-1 overflow-y-auto p-6 space-y-4" style={{ background: 'transparent' }}>
           {messages.map((message, idx) => (
             <div
               key={idx}
