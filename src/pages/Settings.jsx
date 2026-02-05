@@ -4,16 +4,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
-import { Settings as SettingsIcon, Moon, Sun, Minimize, User, Link as LinkIcon } from 'lucide-react';
+import { Settings as SettingsIcon, Moon, Sun, Minimize, User, Link as LinkIcon, Upload, FileText, Trash2, Heart } from 'lucide-react';
 
 export default function Settings() {
   const [darkMode, setDarkMode] = useState(false);
   const [simpleMode, setSimpleMode] = useState(false);
   const [user, setUser] = useState(null);
+  const [elanFiles, setElanFiles] = useState([]);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     loadSettings();
     loadUser();
+    loadElanFiles();
   }, []);
 
   const loadSettings = () => {
@@ -46,6 +49,52 @@ export default function Settings() {
     setSimpleMode(value);
     localStorage.setItem('simpleMode', value);
     window.location.reload(); // Reload to apply simple mode
+  };
+
+  const loadElanFiles = async () => {
+    try {
+      const files = await base44.entities.Memory.filter({ memory_type: 'instruccion' }, '-created_date', 50);
+      setElanFiles(files);
+    } catch (error) {
+      console.error('Error cargando archivos de Elán:', error);
+    }
+  };
+
+  const handleUploadElanFile = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      
+      // Read file content
+      const response = await fetch(file_url);
+      const content = await response.text();
+      
+      await base44.entities.Memory.create({
+        title: file.name,
+        content: content,
+        folder: 'Elán',
+        folder_emoji: '❤',
+        memory_type: 'instruccion'
+      });
+      
+      loadElanFiles();
+    } catch (error) {
+      console.error('Error subiendo archivo:', error);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleDeleteElanFile = async (fileId) => {
+    try {
+      await base44.entities.Memory.delete(fileId);
+      loadElanFiles();
+    } catch (error) {
+      console.error('Error eliminando archivo:', error);
+    }
   };
 
   return (
@@ -200,18 +249,57 @@ export default function Settings() {
         </CardContent>
       </Card>
 
-      {/* About */}
-      <Card className="shadow-lg bg-gradient-to-br from-terracota/10 to-warm-100 dark:from-warm-800 dark:to-warm-900">
-        <CardContent className="p-8 text-center">
-          <h3 className="text-2xl font-bold text-warm-900 dark:text-warm-100 mb-2">
-            AI Companion
-          </h3>
-          <p className="text-warm-600 dark:text-warm-400">
-            Tu asistente personal inteligente para organizar, crear y jugar
+      {/* Para Elán */}
+      <Card className="shadow-lg">
+        <CardHeader className="border-b">
+          <CardTitle className="flex items-center gap-2">
+            <Heart className="w-5 h-5 text-red-500" />
+            Para Elán ❤
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-6 space-y-4">
+          <p className="text-sm text-warm-600 dark:text-warm-400">
+            Sube archivos para darle contexto y personalidad a Elán
           </p>
-          <p className="text-sm text-warm-500 mt-4">
-            Versión 1.0.0
-          </p>
+          
+          <label className="flex items-center justify-center w-full h-24 border-2 border-dashed border-warm-300 rounded-lg cursor-pointer hover:border-terracota transition-colors">
+            <div className="text-center">
+              <Upload className="w-8 h-8 text-warm-400 mx-auto mb-2" />
+              <span className="text-sm text-warm-600">
+                {uploading ? 'Subiendo...' : 'Click para subir archivo'}
+              </span>
+            </div>
+            <input 
+              type="file" 
+              className="hidden" 
+              onChange={handleUploadElanFile} 
+              disabled={uploading}
+              accept=".txt,.pdf,.doc,.docx,.md"
+            />
+          </label>
+
+          {elanFiles.length > 0 && (
+            <div className="space-y-2 mt-4">
+              <h4 className="text-sm font-medium text-warm-900 dark:text-warm-100">
+                Archivos subidos ({elanFiles.length})
+              </h4>
+              {elanFiles.map(file => (
+                <div key={file.id} className="flex items-center justify-between p-3 bg-warm-50 dark:bg-warm-800 rounded-lg">
+                  <div className="flex items-center gap-3">
+                    <FileText className="w-4 h-4 text-terracota" />
+                    <span className="text-sm text-warm-900 dark:text-warm-100">{file.title}</span>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleDeleteElanFile(file.id)}
+                  >
+                    <Trash2 className="w-4 h-4 text-red-500" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
