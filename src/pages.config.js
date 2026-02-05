@@ -54,6 +54,8 @@ import Recipes from './pages/Recipes';
 import Games from './pages/Games';
 import GameChess from './pages/GameChess';
 import GameWords from './pages/GameWords';
+import GameColoring from './pages/GameColoring';
+import GameStop from './pages/GameStop';
 import __Layout from './Layout.jsx';
 
 
@@ -65,6 +67,8 @@ export const PAGES = {
     "Games": Games,
     "GameChess": GameChess,
     "GameWords": GameWords,
+    "GameColoring": GameColoring,
+    "GameStop": GameStop,
 }
 
 export const pagesConfig = {
