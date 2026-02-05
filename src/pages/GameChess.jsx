@@ -171,6 +171,7 @@ export default function GameChess() {
                 size="lg" 
                 variant="outline"
                 onClick={startNewGame}
+                className="text-black"
               >
                 <RotateCcw className="w-5 h-5 mr-2" />
                 Nueva Partida
