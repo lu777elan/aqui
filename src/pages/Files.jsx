@@ -224,7 +224,7 @@ export default function Files() {
         <Button
           variant={selectedFolder === 'todos' ? 'default' : 'outline'}
           onClick={() => setSelectedFolder('todos')}
-          className={selectedFolder === 'todos' ? 'bg-terracota text-white' : ''}
+          className={selectedFolder === 'todos' ? 'bg-terracota text-black' : ''}
         >
           Todos ({files.length})
         </Button>
@@ -233,7 +233,7 @@ export default function Files() {
             key={folder}
             variant={selectedFolder === folder ? 'default' : 'outline'}
             onClick={() => setSelectedFolder(folder)}
-            className={selectedFolder === folder ? 'bg-terracota text-white' : ''}
+            className={selectedFolder === folder ? 'bg-terracota text-black' : ''}
           >
             📁 {folder} ({files.filter(f => f.folder === folder).length})
           </Button>
