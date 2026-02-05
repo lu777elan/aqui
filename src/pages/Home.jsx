@@ -73,9 +73,9 @@ export default function Home() {
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-warm-300 via-warm-400 to-warm-500 p-8 shadow-2xl">
         <div className="absolute top-0 right-0 w-64 h-64 bg-warm-200/30 rounded-full blur-3xl -translate-y-20 translate-x-20" />
         <div className="relative z-10">
-          <h1 className="text-4xl text-purple-500 dark:text-purple-400 mb-2 flex items-center gap-2" style={{ fontFamily: "'Segoe Script', 'Brush Script MT', cursive", fontWeight: '400' }}>
+          <h1 className="text-xl text-warm-700 dark:text-warm-300 mb-2 flex items-center gap-2 font-normal">
             Bienvenido a casa
-            <span className="text-lg">♥♥</span>
+            <span className="text-sm">♥♥</span>
           </h1>
           <p className="text-base text-warm-700 dark:text-warm-300 font-medium">
             Nuestro espacio personal para organizar, crear y jugar
