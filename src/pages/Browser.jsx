@@ -32,8 +32,8 @@ export default function Browser() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Navegador Web</h1>
-        <p className="text-warm-600 dark:text-warm-400">Explora la web desde la aplicación</p>
+        <h1 className="text-4xl font-normal text-warm-900 dark:text-warm-100 mb-2">Navegador Web</h1>
+        <p className="text-warm-600 dark:text-warm-400">explora la web desde aqui mi amor</p>
       </div>
 
       <Card className="shadow-lg">
