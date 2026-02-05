@@ -276,10 +276,23 @@ export default function Calendar() {
       {selectedDate && (
         <Card className="shadow-lg">
           <CardHeader className="border-b">
-            <CardTitle className="flex items-center gap-2">
-              <CalendarIcon className="w-5 h-5 text-terracota" />
-              Eventos - {format(selectedDate, "d 'de' MMMM", { locale: es })}
-            </CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle className="flex items-center gap-2">
+                <CalendarIcon className="w-5 h-5 text-terracota" />
+                Eventos - {format(selectedDate, "d 'de' MMMM", { locale: es })}
+              </CardTitle>
+              <Button 
+                className="bg-terracota hover:bg-terracota-dark text-white"
+                onClick={() => {
+                  resetForm();
+                  setFormData(prev => ({ ...prev, date: format(selectedDate, 'yyyy-MM-dd') }));
+                  setDialogOpen(true);
+                }}
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Agregar Evento
+              </Button>
+            </div>
           </CardHeader>
           <CardContent className="p-6">
             {getEventsForDate(selectedDate).length > 0 ? (
@@ -312,11 +325,23 @@ export default function Calendar() {
                       </div>
                     </div>
                     <div className="flex gap-2">
-                      <Button variant="ghost" size="icon" onClick={() => openEditDialog(event)}>
-                        <Edit className="w-4 h-4 text-warm-600" />
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => openEditDialog(event)}
+                        className="text-warm-600 hover:text-warm-900"
+                      >
+                        <Edit className="w-4 h-4 mr-1" />
+                        Modificar
                       </Button>
-                      <Button variant="ghost" size="icon" onClick={() => handleDeleteEvent(event.id)}>
-                        <Trash2 className="w-4 h-4 text-red-500" />
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => handleDeleteEvent(event.id)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Trash2 className="w-4 h-4 mr-1" />
+                        Eliminar
                       </Button>
                     </div>
                   </div>
