@@ -58,6 +58,8 @@ import GameColoring from './pages/GameColoring';
 import GameStop from './pages/GameStop';
 import Files from './pages/Files';
 import Browser from './pages/Browser';
+import Downloads from './pages/Downloads';
+import Settings from './pages/Settings';
 import __Layout from './Layout.jsx';
 
 
@@ -73,6 +75,8 @@ export const PAGES = {
     "GameStop": GameStop,
     "Files": Files,
     "Browser": Browser,
+    "Downloads": Downloads,
+    "Settings": Settings,
 }
 
 export const pagesConfig = {
