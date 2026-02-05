@@ -105,53 +105,61 @@ export default function Home() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-blue-200 dark:border-blue-800">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">Eventos</p>
-                <p className="text-3xl font-bold text-blue-900 dark:text-blue-100">{upcomingEvents.length}</p>
+        <Link to={createPageUrl('Calendar')}>
+          <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-blue-200 dark:border-blue-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">Eventos</p>
+                  <p className="text-3xl font-bold text-blue-900 dark:text-blue-100">{upcomingEvents.length}</p>
+                </div>
+                <Calendar className="w-10 h-10 text-blue-500" />
               </div>
-              <Calendar className="w-10 h-10 text-blue-500" />
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 border-purple-200 dark:border-purple-800">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">Entradas</p>
-                <p className="text-3xl font-bold text-purple-900 dark:text-purple-100">{recentDiaries.length}</p>
+        <Link to={createPageUrl('Diary')}>
+          <Card className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 border-purple-200 dark:border-purple-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">Entradas</p>
+                  <p className="text-3xl font-bold text-purple-900 dark:text-purple-100">{recentDiaries.length}</p>
+                </div>
+                <BookOpen className="w-10 h-10 text-purple-500" />
               </div>
-              <BookOpen className="w-10 h-10 text-purple-500" />
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900 border-orange-200 dark:border-orange-800">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-orange-600 dark:text-orange-400 font-medium">Recetas</p>
-                <p className="text-3xl font-bold text-orange-900 dark:text-orange-100">{favoriteRecipes.length}</p>
+        <Link to={createPageUrl('Recipes')}>
+          <Card className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900 border-orange-200 dark:border-orange-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-orange-600 dark:text-orange-400 font-medium">Recetas</p>
+                  <p className="text-3xl font-bold text-orange-900 dark:text-orange-100">{favoriteRecipes.length}</p>
+                </div>
+                <ChefHat className="w-10 h-10 text-orange-500" />
               </div>
-              <ChefHat className="w-10 h-10 text-orange-500" />
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Link>
 
-        <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 border-green-200 dark:border-green-800">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-green-600 dark:text-green-400 font-medium">Juegos</p>
-                <p className="text-3xl font-bold text-green-900 dark:text-green-100">4</p>
+        <Link to={createPageUrl('Games')}>
+          <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 border-green-200 dark:border-green-800 cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-green-600 dark:text-green-400 font-medium">Juegos</p>
+                  <p className="text-3xl font-bold text-green-900 dark:text-green-100">4</p>
+                </div>
+                <Gamepad2 className="w-10 h-10 text-green-500" />
               </div>
-              <Gamepad2 className="w-10 h-10 text-green-500" />
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
 
       {/* Quick Access */}
