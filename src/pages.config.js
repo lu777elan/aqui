@@ -56,6 +56,8 @@ import GameChess from './pages/GameChess';
 import GameWords from './pages/GameWords';
 import GameColoring from './pages/GameColoring';
 import GameStop from './pages/GameStop';
+import Files from './pages/Files';
+import Browser from './pages/Browser';
 import __Layout from './Layout.jsx';
 
 
@@ -69,6 +71,8 @@ export const PAGES = {
     "GameWords": GameWords,
     "GameColoring": GameColoring,
     "GameStop": GameStop,
+    "Files": Files,
+    "Browser": Browser,
 }
 
 export const pagesConfig = {
