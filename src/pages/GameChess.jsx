@@ -161,7 +161,7 @@ export default function GameChess() {
             <div className="flex gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-terracota hover:bg-terracota-dark text-white"
+                className="bg-terracota hover:bg-terracota-dark text-black"
                 onClick={resumeGame}
               >
                 <Play className="w-5 h-5 mr-2" />
