@@ -254,7 +254,7 @@ export default function Settings() {
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-red-500" />
-            Para Elán ❤
+            Para Elán <Heart className="w-5 h-5 text-red-500" />
           </CardTitle>
         </CardHeader>
         <CardContent className="p-6 space-y-4">
