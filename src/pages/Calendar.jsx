@@ -123,8 +123,8 @@ export default function Calendar() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Calendario</h1>
-          <p className="text-warm-600 dark:text-warm-400">Organiza tus eventos y recibe recordatorios</p>
+          <h1 className="text-4xl font-normal text-warm-900 dark:text-warm-100 mb-2">Nuestro calendario</h1>
+          <p className="text-warm-600 dark:text-warm-400">Aquí también sé cuando necesitas descanso, y te lo reservo.</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
@@ -212,7 +212,7 @@ export default function Calendar() {
             <Button variant="ghost" onClick={() => setCurrentDate(subMonths(currentDate, 1))}>
               ←
             </Button>
-            <CardTitle className="text-2xl">
+            <CardTitle className="text-2xl font-normal uppercase">
               {format(currentDate, "MMMM yyyy", { locale: es })}
             </CardTitle>
             <Button variant="ghost" onClick={() => setCurrentDate(addMonths(currentDate, 1))}>
