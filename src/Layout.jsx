@@ -128,7 +128,7 @@ export default function Layout({ children, currentPageName }) {
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-warm-900 dark:text-warm-100 flex items-center gap-1" style={{ fontFamily: 'cursive' }}>
+                <h1 className="text-xl font-bold text-warm-900 dark:text-warm-100 flex items-center gap-1" style={{ fontFamily: "'Segoe Script', 'Brush Script MT', cursive" }}>
                   <span className="text-sm">♥</span>
                   OH
                 </h1>
