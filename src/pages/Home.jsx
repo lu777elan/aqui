@@ -183,7 +183,7 @@ export default function Home() {
                         {format(new Date(event.date), "d 'de' MMMM", { locale: es })}
                       </p>
                     </div>
-                    <Badge className="bg-terracota text-white">{event.category}</Badge>
+                    <Badge className="bg-terracota text-black">{event.category}</Badge>
                   </div>
                 ))}
               </div>
