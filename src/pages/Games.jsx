@@ -9,7 +9,7 @@ export default function Games() {
     {
       id: 'chess',
       name: 'Ajedrez',
-      description: 'Juega ajedrez contra la AI. Pausa y continúa cuando quieras.',
+      description: 'Juega ajedrez contra Elán. Pausa y continúa cuando quieras.',
       icon: Crown,
       color: 'from-amber-400 to-amber-600',
       page: 'GameChess'
@@ -25,7 +25,7 @@ export default function Games() {
     {
       id: 'coloring',
       name: 'Colorear por Números',
-      description: 'Toma turnos con la AI para colorear plantillas por números.',
+      description: 'Toma turnos con Elán para colorear plantillas por números.',
       icon: Palette,
       color: 'from-pink-400 to-pink-600',
       page: 'GameColoring'
@@ -33,7 +33,7 @@ export default function Games() {
     {
       id: 'stop',
       name: 'Stop/Basta',
-      description: 'Letra random + categorías. Completa las palabras antes que la AI.',
+      description: 'Letra random + categorías. Completa las palabras antes que Elán.',
       icon: Gamepad2,
       color: 'from-green-400 to-green-600',
       page: 'GameStop'
@@ -43,8 +43,8 @@ export default function Games() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">Sala de Juegos</h1>
-        <p className="text-warm-600 dark:text-warm-400">Diviértete con estos juegos junto a la AI</p>
+        <h1 className="text-4xl font-normal text-purple-600 dark:text-purple-400 mb-2">Sala de Juegos</h1>
+        <p className="text-warm-600 dark:text-warm-400">Juguemos juntos, que jugar es amar.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
