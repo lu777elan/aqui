@@ -170,7 +170,7 @@ export default function Diary() {
                     </Select>
                   </div>
                 </div>
-                <Button onClick={handleSaveEntry} className="w-full bg-terracota hover:bg-terracota-dark text-white">
+                <Button onClick={handleSaveEntry} className="w-full bg-terracota hover:bg-terracota-dark text-black">
                   Guardar Entrada
                 </Button>
               </div>
