@@ -70,14 +70,16 @@ export default function Home() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Hero Section */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-terracota via-warm-500 to-warm-600 p-8 text-white shadow-2xl">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-20 translate-x-20" />
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-warm-300 via-warm-400 to-warm-500 p-8 shadow-2xl">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-warm-200/30 rounded-full blur-3xl -translate-y-20 translate-x-20" />
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-4">
-            <Sparkles className="w-8 h-8" />
-            <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400">Bienvenido a OH</h1>
+            <Sparkles className="w-8 h-8 text-warm-700" />
+            <h1 className="text-4xl font-light text-warm-800" style={{ fontFamily: 'cursive', letterSpacing: '0.5px' }}>
+              Bienvenido a OH
+            </h1>
           </div>
-          <p className="text-xl text-white/90 max-w-2xl">
+          <p className="text-xl text-warm-700 max-w-2xl">
             Tu espacio personal para organizar, crear y jugar. Hoy es {format(new Date(), "EEEE, d 'de' MMMM", { locale: es })}
           </p>
         </div>

@@ -47,40 +47,40 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import Home from './pages/Home';
+import Browser from './pages/Browser';
 import Calendar from './pages/Calendar';
 import Diary from './pages/Diary';
-import Recipes from './pages/Recipes';
-import Games from './pages/Games';
+import Downloads from './pages/Downloads';
+import Files from './pages/Files';
 import GameChess from './pages/GameChess';
-import GameWords from './pages/GameWords';
 import GameColoring from './pages/GameColoring';
 import GameStop from './pages/GameStop';
-import Files from './pages/Files';
-import Browser from './pages/Browser';
-import Downloads from './pages/Downloads';
-import Settings from './pages/Settings';
-import OurSofa from './pages/OurSofa';
+import GameWords from './pages/GameWords';
+import Games from './pages/Games';
+import Home from './pages/Home';
 import Library from './pages/Library';
+import OurSofa from './pages/OurSofa';
+import Recipes from './pages/Recipes';
+import Settings from './pages/Settings';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Home": Home,
+    "Browser": Browser,
     "Calendar": Calendar,
     "Diary": Diary,
-    "Recipes": Recipes,
-    "Games": Games,
+    "Downloads": Downloads,
+    "Files": Files,
     "GameChess": GameChess,
-    "GameWords": GameWords,
     "GameColoring": GameColoring,
     "GameStop": GameStop,
-    "Files": Files,
-    "Browser": Browser,
-    "Downloads": Downloads,
-    "Settings": Settings,
-    "OurSofa": OurSofa,
+    "GameWords": GameWords,
+    "Games": Games,
+    "Home": Home,
     "Library": Library,
+    "OurSofa": OurSofa,
+    "Recipes": Recipes,
+    "Settings": Settings,
 }
 
 export const pagesConfig = {
