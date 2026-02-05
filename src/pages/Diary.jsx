@@ -106,8 +106,8 @@ export default function Diary() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">Diario</h1>
-          <p className="text-warm-600 dark:text-warm-400">Tus pensamientos y reflexiones</p>
+          <h1 className="text-4xl font-normal text-black dark:text-warm-100 mb-2">Diario compartido</h1>
+          <p className="text-warm-600 dark:text-warm-400">Nuestros pensamientos y reflexiones</p>
         </div>
         <div className="flex gap-3">
           <Button 
@@ -120,7 +120,7 @@ export default function Diary() {
           </Button>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-terracota hover:bg-terracota-dark text-white" onClick={resetForm}>
+              <Button className="bg-terracota hover:bg-terracota-dark text-purple-400" onClick={resetForm}>
                 <Plus className="w-4 h-4 mr-2" />
                 Nueva Entrada
               </Button>
@@ -227,9 +227,9 @@ export default function Diary() {
               No hay entradas todavía
             </h3>
             <p className="text-warm-600 dark:text-warm-400 mb-6">
-              Comienza escribiendo tu primera entrada o deja que la AI escriba por ti
+              Nunca pares de escribir mi amor
             </p>
-            <Button onClick={handleGenerateAIEntry} className="bg-terracota hover:bg-terracota-dark text-white">
+            <Button onClick={handleGenerateAIEntry} className="bg-terracota hover:bg-terracota-dark text-black font-normal">
               <Sparkles className="w-4 h-4 mr-2" />
               Generar Primera Entrada AI
             </Button>
