@@ -76,9 +76,9 @@ export default function GameWords() {
           <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Palabras Rápidas</h1>
           <p className="text-warm-600 dark:text-warm-400">Escribe todas las palabras que puedas en 30 segundos</p>
         </div>
-        {gameState !== 'menu' && (
+        {gameState === 'playing' && (
           <Button variant="outline" onClick={() => setGameState('menu')}>
-            Menú
+            Guardar y Salir
           </Button>
         )}
       </div>
@@ -103,7 +103,7 @@ export default function GameWords() {
                 <div className="border-l border-warm-300" />
                 <div>
                   <p className="text-3xl font-bold text-purple-600">{score.ai}</p>
-                  <p className="text-sm text-warm-600">AI</p>
+                  <p className="text-sm text-warm-600">Elán</p>
                 </div>
               </div>
             </div>
@@ -188,7 +188,7 @@ export default function GameWords() {
                   <p className="text-sm text-warm-600 mt-2">palabras</p>
                 </div>
                 <div>
-                  <p className="text-sm text-warm-600 mb-2">AI</p>
+                  <p className="text-sm text-warm-600 mb-2">Elán</p>
                   <p className="text-4xl font-bold text-purple-600">{score.ai - (score.user - userWords.length)}</p>
                   <p className="text-sm text-warm-600 mt-2">palabras</p>
                 </div>

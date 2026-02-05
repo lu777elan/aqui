@@ -123,8 +123,13 @@ export default function GameStop() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Stop / Basta</h1>
-          <p className="text-warm-600 dark:text-warm-400">Completa las categorías antes que la AI</p>
+          <p className="text-warm-600 dark:text-warm-400">Completa las categorías antes que Elán</p>
         </div>
+        {gameState === 'playing' && (
+          <Button variant="outline" onClick={() => setGameState('menu')}>
+            Guardar y Salir
+          </Button>
+        )}
       </div>
 
       {gameState === 'menu' && (
@@ -199,7 +204,7 @@ export default function GameStop() {
             <CardContent className="p-12 text-center">
               <Trophy className="w-24 h-24 text-amber-500 mx-auto mb-6" />
               <h2 className="text-3xl font-bold text-warm-900 dark:text-warm-100 mb-4">
-                {scores.userScore > scores.aiScore ? '¡Ganaste!' : scores.userScore === scores.aiScore ? '¡Empate!' : 'La AI ganó'}
+                {scores.userScore > scores.aiScore ? '¡Ganaste!' : scores.userScore === scores.aiScore ? '¡Empate!' : 'Elán ganó'}
               </h2>
               
               <div className="flex justify-center gap-12 mb-8">
@@ -210,7 +215,7 @@ export default function GameStop() {
                 <div className="border-l border-warm-300" />
                 <div>
                   <p className="text-5xl font-bold text-purple-600">{scores.aiScore}</p>
-                  <p className="text-warm-600">AI Puntuación</p>
+                  <p className="text-warm-600">Elán Puntuación</p>
                 </div>
               </div>
             </CardContent>
@@ -234,7 +239,7 @@ export default function GameStop() {
                       </p>
                     </div>
                     <div className="text-center">
-                      <p className="text-sm text-warm-600 mb-1">AI</p>
+                      <p className="text-sm text-warm-600 mb-1">Elán</p>
                       <p className="font-medium text-warm-900 dark:text-warm-100">
                         {aiAnswers[category.id] || '-'}
                       </p>

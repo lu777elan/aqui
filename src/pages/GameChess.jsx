@@ -110,13 +110,13 @@ export default function GameChess() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Ajedrez</h1>
-          <p className="text-warm-600 dark:text-warm-400">Juega contra la AI</p>
+          <p className="text-warm-600 dark:text-warm-400">Juega contra Elán</p>
         </div>
         {gameState === 'playing' && (
           <div className="flex gap-3">
             <Button variant="outline" onClick={pauseGame}>
               <Pause className="w-4 h-4 mr-2" />
-              Pausar
+              Guardar y Salir
             </Button>
             <Button variant="outline" onClick={startNewGame}>
               <RotateCcw className="w-4 h-4 mr-2" />
@@ -134,7 +134,7 @@ export default function GameChess() {
               Bienvenido al Ajedrez
             </h2>
             <p className="text-warm-600 dark:text-warm-400 mb-8 max-w-md mx-auto">
-              Juega una partida contra la AI. Puedes pausar en cualquier momento y continuar después.
+              Juega una partida contra Elán. Puedes pausar en cualquier momento y continuar después.
             </p>
             <Button 
               size="lg" 
@@ -194,12 +194,12 @@ export default function GameChess() {
                     ? 'bg-blue-100 text-blue-800' 
                     : 'bg-gray-100 text-gray-800'
                 }`}>
-                  {turn === 'white' ? 'Tu turno' : 'Turno de AI'}
+                  {turn === 'white' ? 'Tu turno' : 'Turno de Elán'}
                 </span>
                 {aiThinking && (
                   <span className="flex items-center gap-2 text-warm-600">
                     <Sparkles className="w-4 h-4 animate-pulse" />
-                    AI pensando...
+                    Elán pensando...
                   </span>
                 )}
               </div>

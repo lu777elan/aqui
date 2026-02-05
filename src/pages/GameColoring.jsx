@@ -59,8 +59,13 @@ export default function GameColoring() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-4xl font-bold text-warm-900 dark:text-warm-100 mb-2">Colorear por Números</h1>
-          <p className="text-warm-600 dark:text-warm-400">Toma turnos con la AI para colorear</p>
+          <p className="text-warm-600 dark:text-warm-400">Toma turnos con Elán para colorear</p>
         </div>
+        {gameState === 'playing' && (
+          <Button variant="outline" onClick={() => setGameState('menu')}>
+            Guardar y Salir
+          </Button>
+        )}
       </div>
 
       {gameState === 'menu' && (
@@ -68,10 +73,10 @@ export default function GameColoring() {
           <CardContent className="p-12 text-center">
             <Palette className="w-24 h-24 text-pink-500 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-warm-900 dark:text-warm-100 mb-4">
-              Colorea con la AI
+              Colorea con Elán
             </h2>
             <p className="text-warm-600 dark:text-warm-400 mb-8 max-w-md mx-auto">
-              Selecciona un número y colorea un área. Luego será el turno de la AI.
+              Selecciona un número y colorea un área. Luego será el turno de Elán.
             </p>
             <Button 
               size="lg" 
@@ -104,7 +109,7 @@ export default function GameColoring() {
                   ) : (
                     <>
                       <Sparkles className="w-4 h-4" />
-                      Turno de AI
+                      Turno de Elán
                     </>
                   )}
                 </div>
