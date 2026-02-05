@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Calendar as CalendarIcon, Plus, Clock, Tag, Trash2, Edit, Bell } from 'lucide-react';
+import { Calendar as CalendarIcon, Plus, Clock, Tag, Trash2, Edit, Bell, Circle, Menu } from 'lucide-react';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isSameDay, addMonths, subMonths } from 'date-fns';
 import { es } from 'date-fns/locale';
 
@@ -282,14 +282,16 @@ export default function Calendar() {
                 Eventos - {format(selectedDate, "d 'de' MMMM", { locale: es })}
               </CardTitle>
               <Button 
-                className="bg-terracota hover:bg-terracota-dark text-white"
+                className="bg-terracota hover:bg-terracota-dark text-white shadow-lg font-normal rounded-lg"
                 onClick={() => {
                   resetForm();
                   setFormData(prev => ({ ...prev, date: format(selectedDate, 'yyyy-MM-dd') }));
                   setDialogOpen(true);
                 }}
               >
-                <Plus className="w-4 h-4 mr-2" />
+                <Plus className="w-4 h-4 font-normal" />
+                <Menu className="w-4 h-4 font-normal" />
+                <Circle className="w-4 h-4 font-normal" />
                 Agregar Evento
               </Button>
             </div>
